@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appSeguimientoProspectos", "appSeguimientoProspectos\appSeguimientoProspectos.csproj", "{5DE8EB82-A725-4795-BF39-F02DCF1E7A5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appSeguimiento.EntityLayer", "appSeguimiento.EntityLayer\appSeguimiento.EntityLayer.csproj", "{E15E9E71-3B53-4441-8CA2-1831D0803146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appSeguimiento.DataLayer", "appSeguimiento.DataLayer\appSeguimiento.DataLayer.csproj", "{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5DE8EB82-A725-4795-BF39-F02DCF1E7A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DE8EB82-A725-4795-BF39-F02DCF1E7A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DE8EB82-A725-4795-BF39-F02DCF1E7A5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E15E9E71-3B53-4441-8CA2-1831D0803146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E15E9E71-3B53-4441-8CA2-1831D0803146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E15E9E71-3B53-4441-8CA2-1831D0803146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E15E9E71-3B53-4441-8CA2-1831D0803146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

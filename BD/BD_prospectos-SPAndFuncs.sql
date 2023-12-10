@@ -4,11 +4,12 @@
 --09/12/2023 By Alexia Valenzuela Millán
 
 USE prospectos;
+GO
 --SP_OBTENERINFOTODOSPROSPECTOS: Muestra el listado completo de los
 --prospectos registrados hasta el momento
 CREATE PROC sp_obtenerInfoTodosProspectos
 AS
-	SELECT nombre, ape_paterno, ape_materno, estatus, observaciones
+	SELECT * --nombre, ape_paterno, ape_materno, estatus, observaciones
 	FROM prospectos
 GO
 
@@ -16,7 +17,7 @@ GO
 CREATE PROC sp_obtenerInfoProspecto
 @ID INT 
 AS 
-	SELECT nombre, ape_paterno, ape_materno, estatus, observaciones 
+	SELECT *--nombre, ape_paterno, ape_materno, estatus, observaciones 
 	FROM prospectos WHERE ID = @ID
 GO
 
@@ -50,6 +51,12 @@ AS
 	WHERE ID = @ID
 GO
 
+--SP_OBTENERNEXTIDPROSPECTO: Obtiene el maximo id en la tabla prospectos
+CREATE PROC sp_obtenerNextIdProspecto 
+AS 
+	select MAX(ID) as max_id from prospectos;
+GO
+
 --SP_INSERTADOCUMENTO: Inserta un registro nuevo a la tabla documentos_prospectos
 CREATE PROC sp_insertarDocumento
 @idProspecto INT,
@@ -68,6 +75,12 @@ AS
 	FROM documentos_prospectos d
 	INNER JOIN prospectos p on d.id_prospecto = p.ID
 	WHERE p.ID = @ID
+GO
+
+--SP_OBTENERNEXTIDDOCUMENT: Obtiene el maximo id en la tabla documentos_prospectos
+CREATE PROC sp_obtenerNextIdDocumento 
+AS 
+	select MAX(id_documento) as max_id from documentos_prospectos;
 GO
 
 --Ejecuciones de los SPs
