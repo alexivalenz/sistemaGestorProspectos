@@ -20,7 +20,7 @@ namespace appSeguimiento.DataLayer
             using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
             {
                 SqlCommand cmd = new SqlCommand("EXEC sp_obtenerInfoTodosProspectos", openConnection);
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
                     openConnection.Open();
@@ -58,8 +58,8 @@ namespace appSeguimiento.DataLayer
             using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
             {
                 SqlCommand cmd = new SqlCommand("EXEC sp_obtenerInfoProspecto", openConnection);
-                cmd.Parameters.AddWithValue("ID", IdProspecto);
-                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@ID", IdProspecto);
+                cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
                     openConnection.Open();
@@ -88,7 +88,64 @@ namespace appSeguimiento.DataLayer
                     throw ex;
                 }
             }
+        }
 
+        public bool AgregarNuevo(Prospecto ProspectoAgregar)
+        {
+            bool registroAgregado = false;
+
+            using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand("EXEC sp_insertarProspecto", openConnection);
+                cmd.Parameters.AddWithValue("@ID", ProspectoAgregar.IdProspecto);
+                cmd.Parameters.AddWithValue("@nombre", ProspectoAgregar.Nombre);
+                cmd.Parameters.AddWithValue("@ape_paterno", ProspectoAgregar.PrimerApellido);
+                cmd.Parameters.AddWithValue("@ape_materno", ProspectoAgregar.SegundoApellido);
+                cmd.Parameters.AddWithValue("@calle", ProspectoAgregar.Calle);
+                cmd.Parameters.AddWithValue("@numero_domicilio", ProspectoAgregar.NumeroDomicilio);
+                cmd.Parameters.AddWithValue("@colonia", ProspectoAgregar.Colonia);
+                cmd.Parameters.AddWithValue("@codigo_postal", ProspectoAgregar.CodigoPostal);
+                cmd.Parameters.AddWithValue("@telefono", ProspectoAgregar.Telefono);
+                cmd.Parameters.AddWithValue("@rfc", ProspectoAgregar.Rfc);
+                cmd.Parameters.AddWithValue("@estatus", ProspectoAgregar.Estatus);
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    openConnection.Open();
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    if (filasAfectadas > ) registroAgregado = true;
+                    return registroAgregado;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+        public bool EditarEstatus(Prospecto ProspectoAgregar)
+        {
+            bool registroModificado = false;
+
+            using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand("EXEC sp_insertarProspecto", openConnection);
+                cmd.Parameters.AddWithValue("@ID", ProspectoAgregar.IdProspecto);
+                cmd.Parameters.AddWithValue("@Estatus", ProspectoAgregar.Estatus);
+                cmd.Parameters.AddWithValue("@Observaciones", ProspectoAgregar.Observaciones);
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    openConnection.Open();
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    if (filasAfectadas > ) registroModificado = true;
+                    return registroModificado;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
         }
     }
 }

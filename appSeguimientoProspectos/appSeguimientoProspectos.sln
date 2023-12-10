@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appSeguimiento.EntityLayer"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appSeguimiento.DataLayer", "appSeguimiento.DataLayer\appSeguimiento.DataLayer.csproj", "{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appSeguimiento.BussinessLayer", "appSeguimiento.BussinessLayer\appSeguimiento.BussinessLayer.csproj", "{594A5C8D-B5B9-4210-B187-CE7860BD237C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF17B47D-E32B-4FE5-8DFB-7E6952CFBA36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{594A5C8D-B5B9-4210-B187-CE7860BD237C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594A5C8D-B5B9-4210-B187-CE7860BD237C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{594A5C8D-B5B9-4210-B187-CE7860BD237C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{594A5C8D-B5B9-4210-B187-CE7860BD237C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
