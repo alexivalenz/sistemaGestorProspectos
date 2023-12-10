@@ -32,7 +32,8 @@ GO
 CREATE TABLE documentos_prospectos(
 id_documento INT NOT NULL,
 id_prospecto INT NOT NULL,
-info_documento VARBINARY(MAX) NOT NULL,
+nombre_documento VARCHAR(50) NOT NULL,
+documento VARBINARY(MAX) NOT NULL,
 PRIMARY KEY (id_documento, id_prospecto),
 FOREIGN KEY (id_prospecto) REFERENCES prospectos(ID)
 );

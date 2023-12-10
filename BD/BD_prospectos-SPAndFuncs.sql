@@ -3,16 +3,25 @@
 --mostrar dicha informacion en la aplicacion
 --09/12/2023 By Alexia Valenzuela Millán
 
---SP_MOSTRARPROSPECTOS: Muestra el listado completo de los
+--SP_MOSTRARTODOSPROSPECTOS: Muestra el listado completo de los
 --prospectos registrados hasta el momento
-CREATE PROC sp_mostrarProspectos
+CREATE PROC sp_getTodosProspectos
 AS
-	SELECT * FROM prospectos
+	SELECT nombre, ape_paterno, ape_materno, estatus, observaciones
+	FROM prospectos
+GO
+
+--SP_MOSTRARPROSPECTO: Muestra la información de un solo prospecto (sin documentos)
+CREATE PROC sp_getProspecto
+@ID INT 
+AS 
+	SELECT nombre, ape_paterno, ape_materno, estatus, observaciones 
+	FROM prospectos WHERE ID = @ID
 GO
 
 --SP_INSERTARNUEVOPROSPECTO: Agrega a la tabla PROSPECTOS un nuevo 
 --registro
-CREATE PROC sp_insertarNuevoProspecto 
+CREATE PROC sp_insertarProspecto
 @ID INT,
 @nombre VARCHAR(50),
 @ape_paterno VARCHAR(50), 
@@ -31,19 +40,32 @@ GO
 
 --SP_ACTUALIZAESTATUS: Actualiza el estatus y las observaciones del 
 --prospecto en caso de que tenga un estatus RECHAZADO
-CREATE PROC sp_actualizaEstatus
+CREATE PROC sp_actualizaEstatusProspecto
 @ID INT, 
 @Estatus VARCHAR(20),
 @Observaciones text
 AS
-	UPDATE prospectos SET estatus = @Estatus, observaciones = @Observaciones 
-WHERE ID = @ID
+	UPDATE prospectos 
+	SET estatus = @Estatus, observaciones = @Observaciones 
+	WHERE ID = @ID
 GO
 
 --SP_INSERTANUEVODOCUMENTO: Inserta un registro nuevo a la tabla documentos_prospectos
-CREATE PROC sp_insertaNuevoDocumento
-@id_prospecto INT,
+CREATE PROC sp_insertaDocumento
+@idProspecto INT,
+@nombreDocumento VARCHAR(50),
 @documento VARBINARY(MAX)
 AS
-	INSERT INTO documentos_prospectos(id_prospecto, info_documento) VALUES (@id_prospecto, @documento)
+	INSERT INTO documentos_prospectos(id_prospecto, nombre_documento, documento) 
+	VALUES (@idProspecto, @nombreDocumento, @documento)
+GO
+
+--SP_DOCSPROSPECTO: Obtiene todos los documentos de un determinado prospecto
+CREATE PROC sp_getDocsProspecto 
+@ID INT 
+AS
+	SELECT d.nombre_documento as nombreDocumento, d.documento as Documento 
+	FROM documentos_prospectos d
+	INNER JOIN prospectos p on d.id_prospecto = p.ID
+	WHERE p.ID = @ID
 GO
