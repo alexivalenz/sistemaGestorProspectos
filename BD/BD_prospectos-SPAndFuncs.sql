@@ -39,3 +39,11 @@ AS
 	UPDATE prospectos SET estatus = @Estatus, observaciones = @Observaciones 
 WHERE ID = @ID
 GO
+
+--SP_INSERTANUEVODOCUMENTO: Inserta un registro nuevo a la tabla documentos_prospectos
+CREATE PROC sp_insertaNuevoDocumento
+@id_prospecto INT,
+@documento VARBINARY(MAX)
+AS
+	INSERT INTO documentos_prospectos(id_prospecto, info_documento) VALUES (@id_prospecto, @documento)
+GO
