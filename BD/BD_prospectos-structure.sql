@@ -4,8 +4,8 @@
 --09/12/2023 By Alexia Valenzuela Millán
 
 --Creacion y uso de la bd
-CREATE DATABASE db_prospectos;
-USE db_prospectos;
+CREATE DATABASE prospectos;
+USE prospectos;
 GO
 
 --Creacion de la tabla que almacenara la info 
@@ -18,7 +18,7 @@ ape_materno VARCHAR(50),
 calle VARCHAR(50) NOT NULL,
 numero_domicilio INT NOT NULL,
 colonia VARCHAR(50) NOT NULL, 
-codigo_postal VARCHAR(50) NOT NULL,
+codigo_postal INT NOT NULL,
 telefono VARCHAR(10) NOT NULL,
 rfc VARCHAR(13) NOT NULL,
 estatus VARCHAR(20) NOT NULL,
@@ -41,6 +41,7 @@ GO
 
 --Borrado de las tablas en caso de ser necesario
 --DELETE documentos_prospectos;
+--DROP documentos_prospectos;
 GO
 --DELETE prospectos
 GO

@@ -3,6 +3,7 @@
 --mostrar dicha informacion en la aplicacion
 --09/12/2023 By Alexia Valenzuela Millán
 
+USE prospectos;
 --SP_OBTENERINFOTODOSPROSPECTOS: Muestra el listado completo de los
 --prospectos registrados hasta el momento
 CREATE PROC sp_obtenerInfoTodosProspectos
@@ -29,13 +30,12 @@ CREATE PROC sp_insertarProspecto
 @calle VARCHAR(50),
 @numero_domicilio INT,
 @colonia VARCHAR(50), 
-@codigo_postal VARCHAR(50),
+@codigo_postal INT,
 @telefono VARCHAR(10),
 @rfc VARCHAR(13),
 @estatus VARCHAR(20)
 AS
-	INSERT INTO prospectos(nombre, ape_paterno, ape_materno, calle, numero_domicilio, colonia, codigo_postal, telefono, rfc, estatus, observaciones) 
-	VALUES (@nombre ,@ape_paterno, @ape_materno, @calle, @numero_domicilio ,@colonia, @codigo_postal, @telefono,@rfc,@estatus, 'Sin observaciones relevantes')
+	INSERT INTO prospectos VALUES (@ID, @nombre ,@ape_paterno, @ape_materno, @calle, @numero_domicilio ,@colonia, @codigo_postal, @telefono,@rfc,@estatus, 'Sin observaciones relevantes')
 GO
 
 --SP_ACTUALIZARESTATUSPROSPECTO: Actualiza el estatus y las observaciones del 
@@ -69,3 +69,8 @@ AS
 	INNER JOIN prospectos p on d.id_prospecto = p.ID
 	WHERE p.ID = @ID
 GO
+
+--Ejecuciones de los SPs
+EXEC sp_obtenerInfoTodosProspectos
+
+EXEC sp_insertarProspecto 3,'Juan', 'Valenzuela', 'Reyes', 'Monte Alban', 1234, 'Recursos', 80105, '6673047306', 'VAMA9980124MS', 'Enviado'
