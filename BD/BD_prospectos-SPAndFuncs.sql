@@ -1,6 +1,7 @@
 --Documento para crear los procedimientos almacenados y consultas 
 --que se estarán realizando a las tablas existentes de la BD para 
 --mostrar dicha informacion en la aplicacion
+--09/12/2023 By Alexia Valenzuela Millán
 
 --SP_MOSTRARPROSPECTOS: Muestra el listado completo de los
 --prospectos registrados hasta el momento
