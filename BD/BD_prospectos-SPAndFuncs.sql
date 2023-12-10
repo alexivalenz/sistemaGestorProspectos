@@ -3,23 +3,23 @@
 --mostrar dicha informacion en la aplicacion
 --09/12/2023 By Alexia Valenzuela Millán
 
---SP_MOSTRARTODOSPROSPECTOS: Muestra el listado completo de los
+--SP_OBTENERINFOTODOSPROSPECTOS: Muestra el listado completo de los
 --prospectos registrados hasta el momento
-CREATE PROC sp_getTodosProspectos
+CREATE PROC sp_obtenerInfoTodosProspectos
 AS
 	SELECT nombre, ape_paterno, ape_materno, estatus, observaciones
 	FROM prospectos
 GO
 
---SP_MOSTRARPROSPECTO: Muestra la información de un solo prospecto (sin documentos)
-CREATE PROC sp_getProspecto
+--SP_OBTENERINFOPROSPECTO: Muestra la información de un solo prospecto (sin documentos)
+CREATE PROC sp_obtenerInfoProspecto
 @ID INT 
 AS 
 	SELECT nombre, ape_paterno, ape_materno, estatus, observaciones 
 	FROM prospectos WHERE ID = @ID
 GO
 
---SP_INSERTARNUEVOPROSPECTO: Agrega a la tabla PROSPECTOS un nuevo 
+--SP_INSERTARPROSPECTO: Agrega a la tabla PROSPECTOS un nuevo 
 --registro
 CREATE PROC sp_insertarProspecto
 @ID INT,
@@ -38,9 +38,9 @@ AS
 	VALUES (@nombre ,@ape_paterno, @ape_materno, @calle, @numero_domicilio ,@colonia, @codigo_postal, @telefono,@rfc,@estatus, 'Sin observaciones relevantes')
 GO
 
---SP_ACTUALIZAESTATUS: Actualiza el estatus y las observaciones del 
+--SP_ACTUALIZARESTATUSPROSPECTO: Actualiza el estatus y las observaciones del 
 --prospecto en caso de que tenga un estatus RECHAZADO
-CREATE PROC sp_actualizaEstatusProspecto
+CREATE PROC sp_actualizarEstatusProspecto
 @ID INT, 
 @Estatus VARCHAR(20),
 @Observaciones text
@@ -50,8 +50,8 @@ AS
 	WHERE ID = @ID
 GO
 
---SP_INSERTANUEVODOCUMENTO: Inserta un registro nuevo a la tabla documentos_prospectos
-CREATE PROC sp_insertaDocumento
+--SP_INSERTADOCUMENTO: Inserta un registro nuevo a la tabla documentos_prospectos
+CREATE PROC sp_insertarDocumento
 @idProspecto INT,
 @nombreDocumento VARCHAR(50),
 @documento VARBINARY(MAX)
@@ -60,8 +60,8 @@ AS
 	VALUES (@idProspecto, @nombreDocumento, @documento)
 GO
 
---SP_DOCSPROSPECTO: Obtiene todos los documentos de un determinado prospecto
-CREATE PROC sp_getDocsProspecto 
+--SP_OBTENERDOCSPROSPECTO: Obtiene todos los documentos de un determinado prospecto
+CREATE PROC sp_obtenerDocsProspecto 
 @ID INT 
 AS
 	SELECT d.nombre_documento as nombreDocumento, d.documento as Documento 
