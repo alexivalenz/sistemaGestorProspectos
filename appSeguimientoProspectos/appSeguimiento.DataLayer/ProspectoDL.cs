@@ -57,7 +57,7 @@ namespace appSeguimiento.DataLayer
             Prospecto prospectoConsultado = new Prospecto();
             using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
             {
-                SqlCommand cmd = new SqlCommand("EXEC sp_obtenerInfoProspecto", openConnection);
+                SqlCommand cmd = new SqlCommand("sp_obtenerInfoProspecto", openConnection);
                 cmd.Parameters.AddWithValue("@ID", IdProspecto);
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
@@ -96,7 +96,7 @@ namespace appSeguimiento.DataLayer
 
             using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
             {
-                SqlCommand cmd = new SqlCommand("EXEC sp_insertarProspecto", openConnection);
+                SqlCommand cmd = new SqlCommand("sp_insertarProspecto", openConnection);
                 cmd.Parameters.AddWithValue("@ID", ProspectoAgregar.IdProspecto);
                 cmd.Parameters.AddWithValue("@nombre", ProspectoAgregar.Nombre);
                 cmd.Parameters.AddWithValue("@ape_paterno", ProspectoAgregar.PrimerApellido);
@@ -129,7 +129,7 @@ namespace appSeguimiento.DataLayer
 
             using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
             {
-                SqlCommand cmd = new SqlCommand("EXEC sp_insertarProspecto", openConnection);
+                SqlCommand cmd = new SqlCommand("sp_insertarProspecto", openConnection);
                 cmd.Parameters.AddWithValue("@ID", ProspectoAgregar.IdProspecto);
                 cmd.Parameters.AddWithValue("@Estatus", ProspectoAgregar.Estatus);
                 cmd.Parameters.AddWithValue("@Observaciones", ProspectoAgregar.Observaciones);
