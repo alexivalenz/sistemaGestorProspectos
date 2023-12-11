@@ -7,7 +7,7 @@
         </div>
     </div>--%>
     
-    <div class="row mx-md-n5w overflow-auto" style="width: 90vw; height: 75vh; background-color: rgba(0,0,255,0.1);">
+    <div class="row mx-md-n5w overflow-auto" style="width: 90vw; max-height: 75vh; background-color: rgba(0,0,255,0.1);">
         <asp:Repeater id="cardRep" runat="server">
             <ItemTemplate>
                 <div class="col-sm-4 mb-1 mt-1">
@@ -24,6 +24,7 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+
         <%--<div class="col px-md-5">
             <asp:GridView ID="GVProspectos" runat="server" CssClass="table table-bordered" AutoGenerateColumns="false">
                 <Columns>
