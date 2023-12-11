@@ -4,11 +4,12 @@
     <asp:Label ID="lblTitulo" runat="server" CssClass="fs-4 fw-bold"></asp:Label>
     <div class="mb-3">
         <asp:FileUpload ID="fuDocs" runat="server"/>
-<asp:Button ID="btnGuardarDocs" runat="server" Text="Agregar documento" CssClass="btn btn-sm btn-primary" OnClick="BtnGuardarDoc_Click"/>
-    
+        <asp:Button ID="btnGuardarDocs" OnClick="BtnGuardarDocs_Click" runat="server" Text="Agregar documento" CssClass="btn btn-sm btn-primary" />
+    </div>
         <%-- <label Class="form-label">Nombre(s)</label>
         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
+
     <div class="mb-3">
         <label Class="form-label">Primer apellido</label>
         <asp:TextBox ID="txtPrimerApe" runat="server" CssClass="form-control"></asp:TextBox>

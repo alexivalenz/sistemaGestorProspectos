@@ -17,7 +17,7 @@ namespace appSeguimiento.BussinessLayer
         {
             try
             {
-                return DocumentoDLObj.ObtenerInfoTodosProspectos(IdProspecto);
+                return DocumentoDLObj.ObtenerDocumentosProspectos(IdProspecto);
             }
             catch (Exception ex)
             {

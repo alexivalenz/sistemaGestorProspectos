@@ -11,6 +11,6 @@ namespace appSeguimiento.EntityLayer
 		public int IdDocumento { get; set; }
 		public int IdProspecto { get; set; }
 		public string NombreDocumento { get; set;}
-		public String InfoDocumento { get; set; }
+		public byte[] InfoDocumento { get; set; }
 	}
 }

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="prospectosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="documentos_prospectos">
+          <Key>
+            <PropertyRef Name="id_documento" />
+            <PropertyRef Name="id_prospecto" />
+          </Key>
+          <Property Name="id_documento" Type="int" Nullable="false" />
+          <Property Name="id_prospecto" Type="int" Nullable="false" />
+          <Property Name="nombre_documento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="documento" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <Function Name="sp_insertarDocumento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idDocumento" Type="int" Mode="In" />
+          <Parameter Name="idProspecto" Type="int" Mode="In" />
+          <Parameter Name="nombreDocumento" Type="varchar" Mode="In" />
+          <Parameter Name="documento" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_obtenerDocsProspecto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="prospectosModelStoreContainer">
+          <EntitySet Name="documentos_prospectos" EntityType="Self.documentos_prospectos" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="prospectosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="documentos_prospectos">
+          <Key>
+            <PropertyRef Name="id_documento" />
+            <PropertyRef Name="id_prospecto" />
+          </Key>
+          <Property Name="id_documento" Type="Int32" Nullable="false" />
+          <Property Name="id_prospecto" Type="Int32" Nullable="false" />
+          <Property Name="nombre_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="documento" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="prospectosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="documentos_prospectos" EntityType="Self.documentos_prospectos" />
+          <FunctionImport Name="sp_insertarDocumento">
+            <Parameter Name="idDocumento" Mode="In" Type="Int32" />
+            <Parameter Name="idProspecto" Mode="In" Type="Int32" />
+            <Parameter Name="nombreDocumento" Mode="In" Type="String" />
+            <Parameter Name="documento" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_obtenerDocsProspecto" ReturnType="Collection(prospectosModel.sp_obtenerDocsProspecto_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_obtenerDocsProspecto_Result">
+          <Property Type="Int32" Name="idDocumento" Nullable="false" />
+          <Property Type="Int32" Name="idProspecto" Nullable="false" />
+          <Property Type="String" Name="nombreDocumento" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="Documento" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="prospectosModelStoreContainer" CdmEntityContainer="prospectosEntities">
+          <EntitySetMapping Name="documentos_prospectos">
+            <EntityTypeMapping TypeName="prospectosModel.documentos_prospectos">
+              <MappingFragment StoreEntitySet="documentos_prospectos">
+                <ScalarProperty Name="id_documento" ColumnName="id_documento" />
+                <ScalarProperty Name="id_prospecto" ColumnName="id_prospecto" />
+                <ScalarProperty Name="nombre_documento" ColumnName="nombre_documento" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_insertarDocumento" FunctionName="prospectosModel.Store.sp_insertarDocumento" />
+          <FunctionImportMapping FunctionImportName="sp_obtenerDocsProspecto" FunctionName="prospectosModel.Store.sp_obtenerDocsProspecto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="prospectosModel.sp_obtenerDocsProspecto_Result">
+                <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+                <ScalarProperty Name="idProspecto" ColumnName="idProspecto" />
+                <ScalarProperty Name="nombreDocumento" ColumnName="nombreDocumento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

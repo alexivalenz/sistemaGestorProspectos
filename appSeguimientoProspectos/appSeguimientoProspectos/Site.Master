@@ -47,9 +47,9 @@
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Visualización de prospectos (Inicio)</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Captura de prospectos (Acerca de)</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Evaluacion de prospectos (Contacto)</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Visualización</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Captura</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Evaluacion</a></li>
                     </ul>
                 </div>
             </div>

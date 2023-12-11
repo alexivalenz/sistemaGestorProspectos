@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Inicio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="appSeguimientoProspectos._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <%-- %><div="row">
+    <%-- <div="row">
         <div class="col-12">
             <asp:Button runat="server" OnClick="Nuevo_click" CssClass="btn btn-sm btn-success" Text="Nuevo" />
         </div>

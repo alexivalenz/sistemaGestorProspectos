@@ -13,7 +13,7 @@ namespace appSeguimiento.DataLayer
 {
     public class DocumentoDL
     {
-        public List<Documento> ObtenerInfoTodosProspectos(int IdProspecto)
+        public List<Documento> ObtenerDocumentosProspectos(int IdProspecto)
         {
             List<Documento> documentosProspecto = new List<Documento>();
             using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
@@ -33,7 +33,7 @@ namespace appSeguimiento.DataLayer
                                 IdDocumento = Convert.ToInt32(dr["idDocumento"].ToString()),
                                 IdProspecto = Convert.ToInt32(dr["idProspecto"].ToString()),
                                 NombreDocumento = dr["NombreDocumento"].ToString(),
-                                InfoDocumento = dr["Documento"].ToString()
+                                InfoDocumento = (byte[])dr["Documento"]
                             });
                         }
                     }
@@ -54,10 +54,10 @@ namespace appSeguimiento.DataLayer
             using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
             {
                 SqlCommand cmd = new SqlCommand("sp_insertarDocumento", openConnection);
-                cmd.Parameters.AddWithValue("@ID", documentoAgregar.IdDocumento);
-                cmd.Parameters.AddWithValue("@nombre", documentoAgregar.IdProspecto);
-                cmd.Parameters.AddWithValue("@ape_paterno", documentoAgregar.NombreDocumento);
-                cmd.Parameters.AddWithValue("@ape_materno", documentoAgregar.InfoDocumento);
+                cmd.Parameters.AddWithValue("@idDocumento", documentoAgregar.IdDocumento);
+                cmd.Parameters.AddWithValue("@idProspecto", documentoAgregar.IdProspecto);
+                cmd.Parameters.AddWithValue("@nombreDocumento", documentoAgregar.NombreDocumento);
+                cmd.Parameters.AddWithValue("@documento", documentoAgregar.InfoDocumento);
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {

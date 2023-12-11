@@ -25,63 +25,53 @@ namespace appSeguimientoProspectos
                 {
                     IdProspecto = Convert.ToInt32(Request.QueryString["idProspecto"].ToString());
                 }
-            }else
-            {
-                Response.Redirect("~/Default.aspx");
-            }
+            }//else
+            //{
+              //  Response.Redirect("~/Default.aspx");
+            //}
         }
 
-        protected void BtnEnviar_Click(object sender, EventArgs e)
-        {
-            Prospecto ProspectoCapturado = new Prospecto()
-            {
-                IdProspecto = IdProspecto,
-                Nombre = txtNombre.Text,
-                PrimerApellido = txtPrimerApe.Text,
-                SegundoApellido = txtSegundoApe.Text,
-                Calle = txtCalle.Text,
-                NumeroDomicilio = Convert.ToInt32(txtNumeroDom.Text),
-                Colonia = txtColonia.Text,
-                CodigoPostal = Convert.ToInt32(txtCodigoPos.Text),
-                Telefono = txtTelefono.Text,
-                Rfc = txtRfc.Text
-            };
-
-            bool respuestaExitosa;
-
-            respuestaExitosa = ProspectoBLObj.InsertarProspecto(ProspectoCapturado);
-
-            if (respuestaExitosa)
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('¡Prospecto capturado de forma exitosa!')", true);
-                Response.Redirect("~/Default.aspx");
-            }
-            else
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('No se pudo realizar la operación deseada')", true);
-            }
-        }
-
-        protected void BtnGuardarDoc_Click(object sender, EventArgs e)
+        protected void BtnGuardarDocs_Click(object sender, EventArgs e)
         {
             Documento DocumentoCapturado = new Documento()
             {
-                IdProspecto = 1,
-                IdDocumento = 1
+                IdProspecto = 2,
+                IdDocumento = 123345,
+                NombreDocumento = fuDocs.FileName.ToString(),
+                InfoDocumento = fuDocs.FileBytes
             };
 
             bool respuestaExitosa;
-
-            respuestaExitosa = DocumentoDLObj.InsertarNuevo(DocumentoCapturado);
-
-            if (respuestaExitosa)
+            try
             {
+                respuestaExitosa = DocumentoDLObj.InsertarNuevo(DocumentoCapturado);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('¡Documento capturado de forma exitosa!')", true);
-                //Response.Redirect("~/Default.aspx");
             }
-            else
+            catch(Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('No se pudo realizar la operación deseada')", true);
+                System.Console.Write(ex.Message);
+            }
+        }
+
+        protected void btnGuardarDocs_Click1(object sender, EventArgs e)
+        {
+            Documento DocumentoCapturado = new Documento()
+            {
+                IdProspecto = 2,
+                IdDocumento = 134234,
+                NombreDocumento = fuDocs.FileName.ToString(),
+                InfoDocumento = fuDocs.FileBytes
+            };
+
+            bool respuestaExitosa;
+            try
+            {
+                respuestaExitosa = DocumentoDLObj.InsertarNuevo(DocumentoCapturado);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('¡Documento capturado de forma exitosa!')", true);
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Ocurrió un error al guardar el archivo')", true);
             }
         }
     }
