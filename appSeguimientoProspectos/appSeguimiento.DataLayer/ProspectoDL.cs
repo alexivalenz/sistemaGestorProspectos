@@ -19,7 +19,7 @@ namespace appSeguimiento.DataLayer
             List<Prospecto> prospectos = new List<Prospecto>();
             using (SqlConnection openConnection = new SqlConnection(Conexion.cadena))
             {
-                SqlCommand cmd = new SqlCommand("EXEC sp_obtenerInfoTodosProspectos", openConnection);
+                SqlCommand cmd = new SqlCommand("sp_obtenerInfoTodosProspectos", openConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 try
                 {
@@ -113,7 +113,7 @@ namespace appSeguimiento.DataLayer
                 {
                     openConnection.Open();
                     int filasAfectadas = cmd.ExecuteNonQuery();
-                    if (filasAfectadas > ) registroAgregado = true;
+                    if (filasAfectadas > 0) registroAgregado = true;
                     return registroAgregado;
                 }
                 catch (Exception ex)
@@ -138,7 +138,7 @@ namespace appSeguimiento.DataLayer
                 {
                     openConnection.Open();
                     int filasAfectadas = cmd.ExecuteNonQuery();
-                    if (filasAfectadas > ) registroModificado = true;
+                    if (filasAfectadas > 0) registroModificado = true;
                     return registroModificado;
                 }
                 catch (Exception ex)

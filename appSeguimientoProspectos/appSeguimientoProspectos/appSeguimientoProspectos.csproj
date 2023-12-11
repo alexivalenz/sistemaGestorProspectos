@@ -249,6 +249,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\appSeguimiento.BussinessLayer\appSeguimiento.BussinessLayer.csproj">
+      <Project>{594a5c8d-b5b9-4210-b187-ce7860bd237c}</Project>
+      <Name>appSeguimiento.BussinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\appSeguimiento.EntityLayer\appSeguimiento.EntityLayer.csproj">
+      <Project>{e15e9e71-3b53-4441-8ca2-1831d0803146}</Project>
+      <Name>appSeguimiento.EntityLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
