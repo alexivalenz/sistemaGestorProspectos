@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2">Folio: <%#DataBinder.Eval(Container,"DataItem.IdProspecto") %></h6>
                             <p class="card-text mb-2">Estatus del prospecto: <%#DataBinder.Eval(Container,"DataItem.Estatus") %></p>
-                            <a href="#" class="btn btn-primary btn-sm">Más información</a>
+                            <a href="About.aspx?idProspecto=<%#DataBinder.Eval(Container,"DataItem.IdProspecto") %>" class="btn btn-primary btn-sm">Más información</a>
                         </div>
                     </div>
                 </div>
