@@ -15,6 +15,7 @@ namespace appSeguimientoProspectos
     {
         private static int IdProspecto = 0;
         ProspectoBL ProspectoBLObj = new ProspectoBL();
+        DocumentoBL DocumentoDLObj = new DocumentoBL();    
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,6 +55,29 @@ namespace appSeguimientoProspectos
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('¡Prospecto capturado de forma exitosa!')", true);
                 Response.Redirect("~/Default.aspx");
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('No se pudo realizar la operación deseada')", true);
+            }
+        }
+
+        protected void BtnGuardarDoc_Click(object sender, EventArgs e)
+        {
+            Documento DocumentoCapturado = new Documento()
+            {
+                IdProspecto = 1,
+                IdDocumento = 1
+            };
+
+            bool respuestaExitosa;
+
+            respuestaExitosa = DocumentoDLObj.InsertarNuevo(DocumentoCapturado);
+
+            if (respuestaExitosa)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('¡Documento capturado de forma exitosa!')", true);
+                //Response.Redirect("~/Default.aspx");
             }
             else
             {

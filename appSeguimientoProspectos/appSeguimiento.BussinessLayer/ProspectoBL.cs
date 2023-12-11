@@ -36,7 +36,6 @@ namespace appSeguimiento.BussinessLayer
                 throw ex;
             }
         }
-
         public bool InsertarProspecto(Prospecto prospectoCapturado)
         {
             try

@@ -3,7 +3,10 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label ID="lblTitulo" runat="server" CssClass="fs-4 fw-bold"></asp:Label>
     <div class="mb-3">
-        <label Class="form-label">Nombre(s)</label>
+        <asp:FileUpload ID="fuDocs" runat="server"/>
+<asp:Button ID="btnGuardarDocs" runat="server" Text="Agregar documento" CssClass="btn btn-sm btn-primary" OnClick="BtnGuardarDoc_Click"/>
+    
+        <%-- <label Class="form-label">Nombre(s)</label>
         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
@@ -38,7 +41,6 @@
         <label Class="form-label">RFC</label>
         <asp:TextBox ID="txtRfc" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
-
     <asp:Button ID="btnEnviar" runat="server" Text="Enviar" CssClass="btn btn-sm btn-primary" OnClick="BtnEnviar_Click"/>
-    <asp:LinkButton runat="server" PostBackUrl="~/Default.aspx" CssClass="btn btn-sm btn-warning">Volver al inicio</asp:LinkButton>
+    <asp:LinkButton runat="server" PostBackUrl="~/Default.aspx" CssClass="btn btn-sm btn-warning">Volver al inicio</asp:LinkButton>--%>
 </asp:Content>

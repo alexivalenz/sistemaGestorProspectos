@@ -9,7 +9,7 @@ using appSeguimiento.EntityLayer;
 
 namespace appSeguimiento.BussinessLayer
 {
-    public class DocumentoDL
+    public class DocumentoBL
     {
         DocumentoDL DocumentoDLObj = new DocumentoDL();
 
@@ -17,7 +17,7 @@ namespace appSeguimiento.BussinessLayer
         {
             try
             {
-                return DocumentoDLObj.ObtenerDocumentosProspecto(IdProspecto);
+                return DocumentoDLObj.ObtenerInfoTodosProspectos(IdProspecto);
             }
             catch (Exception ex)
             {
@@ -32,7 +32,7 @@ namespace appSeguimiento.BussinessLayer
                 if (documentoCapturado.NombreDocumento.Length < 0 || documentoCapturado.InfoDocumento.Length < 0)
                     throw new OperationCanceledException("Debe de asignarse un nombre al documento y cargarlo");
 
-                return DocumentoDLObj.InsertarNuevo(documentoCapturado);
+                return DocumentoDLObj.AgregarNuevo(documentoCapturado);
             }
             catch (Exception ex)
             {
