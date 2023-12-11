@@ -23,8 +23,10 @@ namespace appSeguimientoProspectos
         {
             List<Prospecto> lista = ProspectoObj.obtenerTodosProspectos();
 
-            GVProspectos.DataSource = lista;
-            GVProspectos.DataBind();
+        cardRep.DataSource = lista;
+        cardRep.DataBind();
+            //GVProspectos.DataSource = lista;
+            //GVProspectos.DataBind();
         }
 
         protected void Nuevo_click(object sender, EventArgs e)

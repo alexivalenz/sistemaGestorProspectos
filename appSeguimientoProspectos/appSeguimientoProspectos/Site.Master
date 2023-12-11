@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - App Prospectos</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -57,8 +57,9 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
+            
+            <footer class="fixed-bottom">
+                <hr />
                 <p>&copy; <%: DateTime.Now.Year %> - App de gestión de prospectos by Alexia Valenzuela Millán (Making tech with love at The Weeknd's groove! <3)</p>
             </footer>
         </div>
