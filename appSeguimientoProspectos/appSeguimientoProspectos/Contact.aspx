@@ -2,10 +2,17 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label ID="lblTitulo" runat="server" CssClass="fs-4 fw-bold"></asp:Label>
-    <div class="mb-3">
-        <asp:FileUpload ID="fuDocs" runat="server"/>
-        <asp:Button ID="btnGuardarDocs" OnClick="BtnGuardarDocs_Click" runat="server" Text="Agregar documento" CssClass="btn btn-sm btn-primary" />
-    </div>
+    <div ID="ContCardSbmDocs" class="card">
+  <div class="card-header">
+    Captura de documentos
+  </div>
+  <div class="card-body">
+    <p class="card-text">Se deberá seleccionar un archivo a la vez. Los archivos que subas no deben de ser mayores a 4 mb.</p>
+    <asp:FileUpload ID="fuDocs" runat="server" CssClass="custom-file-input"/>
+      <br />
+    <asp:Button ID="btnGuardarDocs" OnClick="BtnGuardarDocs_Click" runat="server" Text="Agregar documento" CssClass="btn btn-sm btn-primary mt-2" />
+  </div>
+</div>
         <%-- <label Class="form-label">Nombre(s)</label>
         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
