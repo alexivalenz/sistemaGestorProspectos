@@ -59,19 +59,20 @@ GO
 
 --SP_INSERTADOCUMENTO: Inserta un registro nuevo a la tabla documentos_prospectos
 CREATE PROC sp_insertarDocumento
+@idDocumento INT,
 @idProspecto INT,
 @nombreDocumento VARCHAR(50),
 @documento VARBINARY(MAX)
 AS
-	INSERT INTO documentos_prospectos(id_prospecto, nombre_documento, documento) 
-	VALUES (@idProspecto, @nombreDocumento, @documento)
+	INSERT INTO documentos_prospectos  
+	VALUES (@idDocumento, @idProspecto, @nombreDocumento, @documento)
 GO
 
 --SP_OBTENERDOCSPROSPECTO: Obtiene todos los documentos de un determinado prospecto
 CREATE PROC sp_obtenerDocsProspecto 
 @ID INT 
 AS
-	SELECT d.nombre_documento as nombreDocumento, d.documento as Documento 
+	SELECT d.id_documento as idDocumento, d.id_prospecto as idProspecto, d.nombre_documento as nombreDocumento, d.documento as Documento 
 	FROM documentos_prospectos d
 	INNER JOIN prospectos p on d.id_prospecto = p.ID
 	WHERE p.ID = @ID
